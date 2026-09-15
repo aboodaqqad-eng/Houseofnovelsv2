@@ -30,6 +30,13 @@ export default function Home() {
           <h1 className="serif" style={{ fontSize: 'clamp(2.2rem, 5.5vw, 3.6rem)', lineHeight: 1.1 }}>
             The House of <em style={{ fontStyle: 'italic' }}>extraordinary</em> Taste
           </h1>
+          <p style={{
+            color: 'rgba(239, 232, 223, 0.7)', fontSize: 'clamp(0.9rem, 1.4vw, 1.05rem)',
+            lineHeight: 1.6, marginTop: 20, maxWidth: 520,
+          }}>
+            Riyadh has been tasting our work since 2018. Now, it&rsquo;s time to know our name. From the city&rsquo;s
+            finest cafés and hotels to your table.
+          </p>
         </div>
         <div style={{
           width: 'min(440px, 100%)', flex: '0 0 auto', background: 'var(--off-white)',
