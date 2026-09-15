@@ -21,7 +21,7 @@ export default function Home() {
       <section style={{
         background: 'var(--olive)', color: 'var(--off-white)',
         padding: 'clamp(40px, 8vh, 80px) clamp(20px, 6vw, 90px)',
-        display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 'clamp(32px, 6vw, 90px)', flexWrap: 'wrap',
+        display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 'clamp(48px, 10vw, 140px)', flexWrap: 'wrap',
       }}>
         <div style={{ maxWidth: 640 }}>
           <p className="label" style={{ fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.85, marginBottom: 16 }}>
