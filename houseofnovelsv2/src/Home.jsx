@@ -23,7 +23,7 @@ export default function Home() {
         padding: 'clamp(40px, 8vh, 80px) clamp(20px, 6vw, 90px)',
         display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 'clamp(48px, 10vw, 140px)', flexWrap: 'wrap',
       }}>
-        <div style={{ maxWidth: 640 }}>
+        <div className="hero-text" style={{ maxWidth: 640, flex: '1 1 320px' }}>
           <p className="label" style={{ fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.85, marginBottom: 16 }}>
             Maison de Pâtisserie _ Riyadh, Est. 2018
           </p>
@@ -38,8 +38,8 @@ export default function Home() {
             finest cafés and hotels to your table.
           </p>
         </div>
-        <div style={{
-          width: 'min(440px, 100%)', flex: '0 0 auto', background: 'var(--off-white)',
+        <div className="hero-photo" style={{
+          width: 'min(440px, 100%)', flex: '1 1 260px', background: 'var(--off-white)',
           padding: 'clamp(10px, 1.6vw, 16px)', boxShadow: '0 24px 48px rgba(0,0,0,0.28)',
         }}>
           <div style={{ border: '1px solid var(--olive)', padding: 'clamp(5px, 0.8vw, 8px)' }}>
@@ -66,8 +66,8 @@ export default function Home() {
         <h2 className="serif" style={{ textAlign: 'center', fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)', color: 'var(--navy-deep)', marginBottom: 'clamp(20px, 3.5vh, 32px)' }}>
           Best Sellers
         </h2>
-        <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 200px))',
+        <div className="best-sellers-grid" style={{
+          display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 200px))',
           gap: 'clamp(16px, 2.5vw, 28px)', justifyContent: 'center',
         }}>
           {bestSellers.map((item) => (

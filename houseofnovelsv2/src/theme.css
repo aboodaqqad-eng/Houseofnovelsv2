@@ -203,6 +203,12 @@ a { color: inherit; }
   }
 }
 
+@media (min-width: 640px) {
+  .best-sellers-grid {
+    grid-template-columns: repeat(4, minmax(0, 200px)) !important;
+  }
+}
+
 .placeholder-badge {
   display: inline-block;
   font-family: var(--font-sans);
