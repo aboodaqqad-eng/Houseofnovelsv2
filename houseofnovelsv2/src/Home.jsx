@@ -31,14 +31,18 @@ export default function Home() {
             The House of <em style={{ fontStyle: 'italic' }}>extraordinary</em> Taste
           </h1>
         </div>
-        <img
-          src={heroPhoto}
-          alt="House of Novéls pastries"
-          style={{
-            width: 'min(440px, 100%)', aspectRatio: '4 / 5', objectFit: 'cover',
-            borderRadius: 2, flex: '0 0 auto',
-          }}
-        />
+        <div style={{
+          width: 'min(440px, 100%)', flex: '0 0 auto', background: 'var(--off-white)',
+          padding: 'clamp(10px, 1.6vw, 16px)', boxShadow: '0 24px 48px rgba(0,0,0,0.28)',
+        }}>
+          <div style={{ border: '1px solid var(--olive)', padding: 'clamp(5px, 0.8vw, 8px)' }}>
+            <img
+              src={heroPhoto}
+              alt="House of Novéls pastries"
+              style={{ width: '100%', aspectRatio: '4 / 5', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
+        </div>
       </section>
 
       <section style={{ padding: 'clamp(36px, 6vh, 64px) clamp(20px, 6vw, 90px)', textAlign: 'center' }}>
