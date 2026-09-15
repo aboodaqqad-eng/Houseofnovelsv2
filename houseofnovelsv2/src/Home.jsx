@@ -1,0 +1,84 @@
+import { Link } from 'react-router-dom';
+import { useMenu } from './context/MenuContext.jsx';
+import { menuPhotos } from './data/menuPhotos.js';
+
+const CHAPTER_SLUGS = ['desserts', 'coffee', 'bakery', 'signature-cakes'];
+
+export default function Home() {
+  const { categories, loading } = useMenu();
+
+  if (loading) return null;
+
+  const bySlug = Object.fromEntries(categories.map((c) => [c.slug, c]));
+  const chapters = CHAPTER_SLUGS.map((slug) => bySlug[slug]).filter(Boolean);
+  const bestSellers = chapters
+    .map((c) => c.items.find((it) => it.featured) || c.items.find((it) => !it.is_placeholder))
+    .filter(Boolean);
+
+  return (
+    <div style={{ background: 'var(--off-white)' }}>
+      <section style={{
+        background: 'var(--olive)', color: 'var(--off-white)',
+        padding: 'clamp(40px, 8vh, 80px) clamp(20px, 6vw, 90px)',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap',
+      }}>
+        <div style={{ maxWidth: 640 }}>
+          <p className="label" style={{ fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.85, marginBottom: 16 }}>
+            Maison de Pâtisserie _ Riyadh, Est. 2018
+          </p>
+          <h1 className="serif" style={{ fontSize: 'clamp(2.2rem, 5.5vw, 3.6rem)', lineHeight: 1.1 }}>
+            The House of <em style={{ fontStyle: 'italic' }}>extraordinary</em> Taste
+          </h1>
+        </div>
+        <Link
+          to="/menu"
+          className="label"
+          style={{
+            background: 'var(--off-white)', color: 'var(--olive)', flex: '0 0 auto',
+            padding: '20px 28px', fontSize: '0.72rem', letterSpacing: '0.1em', textDecoration: 'none',
+            textAlign: 'center', lineHeight: 1.5,
+          }}
+        >
+          Explore<br />Our Menu
+        </Link>
+      </section>
+
+      <section style={{ padding: 'clamp(36px, 6vh, 64px) clamp(20px, 6vw, 90px)', textAlign: 'center' }}>
+        <p className="serif" style={{
+          fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2.4vw, 1.5rem)', color: 'var(--navy-deep)',
+          maxWidth: 780, margin: '0 auto', lineHeight: 1.5,
+        }}>
+          Welcome to House of Novéls. Step inside a world of thoughtful craftsmanship, timeless elegance, and
+          unforgettable flavors.
+        </p>
+      </section>
+
+      <section style={{ padding: '0 clamp(20px, 6vw, 90px) clamp(40px, 7vh, 72px)' }}>
+        <h2 className="serif" style={{ textAlign: 'center', fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)', color: 'var(--navy-deep)', marginBottom: 'clamp(20px, 3.5vh, 32px)' }}>
+          Best Sellers
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 'clamp(16px, 2.5vw, 28px)' }}>
+          {bestSellers.map((item) => (
+            <div key={item.id}>
+              {menuPhotos[item.name] ? (
+                <img
+                  src={menuPhotos[item.name]}
+                  alt={item.name}
+                  style={{ width: '100%', aspectRatio: '1 / 1', objectFit: 'cover', borderRadius: 2 }}
+                />
+              ) : (
+                <div style={{ width: '100%', aspectRatio: '1 / 1', background: 'var(--peach)', borderRadius: 2 }} />
+              )}
+              <p className="label" style={{ fontSize: '0.75rem', color: 'var(--navy-deep)', marginTop: 12, textAlign: 'center' }}>
+                {item.name}
+              </p>
+              <p style={{ fontSize: '0.85rem', color: 'rgba(24,38,67,0.65)', textAlign: 'center', marginTop: 4 }}>
+                {item.price} SAR
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
