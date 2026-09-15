@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import { useMenu } from './context/MenuContext.jsx';
 import { menuPhotos } from './data/menuPhotos.js';
+import heroPhoto from './assets/photos/storefront.jpg';
 
 const CHAPTER_SLUGS = ['desserts', 'coffee', 'bakery', 'signature-cakes'];
 
@@ -20,7 +20,7 @@ export default function Home() {
       <section style={{
         background: 'var(--olive)', color: 'var(--off-white)',
         padding: 'clamp(40px, 8vh, 80px) clamp(20px, 6vw, 90px)',
-        display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap',
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap',
       }}>
         <div style={{ maxWidth: 640 }}>
           <p className="label" style={{ fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.85, marginBottom: 16 }}>
@@ -30,17 +30,14 @@ export default function Home() {
             The House of <em style={{ fontStyle: 'italic' }}>extraordinary</em> Taste
           </h1>
         </div>
-        <Link
-          to="/menu"
-          className="label"
+        <img
+          src={heroPhoto}
+          alt="House of Novéls pastries"
           style={{
-            background: 'var(--off-white)', color: 'var(--olive)', flex: '0 0 auto',
-            padding: '20px 28px', fontSize: '0.72rem', letterSpacing: '0.1em', textDecoration: 'none',
-            textAlign: 'center', lineHeight: 1.5,
+            width: 'min(360px, 100%)', aspectRatio: '4 / 5', objectFit: 'cover',
+            borderRadius: 2, flex: '0 0 auto',
           }}
-        >
-          Explore<br />Our Menu
-        </Link>
+        />
       </section>
 
       <section style={{ padding: 'clamp(36px, 6vh, 64px) clamp(20px, 6vw, 90px)', textAlign: 'center' }}>
