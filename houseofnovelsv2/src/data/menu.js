@@ -39,8 +39,8 @@ export const categories = [
   {
     slug: 'bakery',
     name: 'Bakery',
-    background: 'var(--peach)',
-    ink: 'var(--navy-rich)',
+    background: 'var(--olive)',
+    ink: 'var(--off-white)',
     isPlaceholder: false,
     chapterLabel: 'Chapter Three',
     quote: 'Baked before the doors open, so it’s never anything but fresh.',
@@ -55,8 +55,8 @@ export const categories = [
   {
     slug: 'coffee',
     name: 'Coffee',
-    background: 'var(--baby-blue)',
-    ink: 'var(--navy-rich)',
+    background: 'var(--olive)',
+    ink: 'var(--off-white)',
     isPlaceholder: false,
     chapterLabel: 'Chapter Two',
     quote: 'Pulled to order, poured without rushing a single cup.',
@@ -85,7 +85,7 @@ export const categories = [
   {
     slug: 'catering',
     name: 'Events & Catering',
-    background: 'var(--navy-deep)',
+    background: 'var(--olive)',
     ink: 'var(--off-white)',
     isPlaceholder: false,
     note: 'Package names, guest caps, and SAR prices below are unconfirmed — verify with the client before launch.',
