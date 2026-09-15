@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useMenu } from './context/MenuContext.jsx';
 import { useLang, categoryNames } from './context/LangContext.jsx';
 import { menuPhotos } from './data/menuPhotos.js';
@@ -9,6 +9,33 @@ export default function MenusPage() {
   const { categories, loading } = useMenu();
   const { t, lang } = useLang();
   const [activeSlug, setActiveSlug] = useState(null);
+  const tabsRef = useRef(null);
+  const dragState = useRef({ down: false, moved: false, startX: 0, startScroll: 0 });
+
+  const onTabsPointerDown = (e) => {
+    const el = tabsRef.current;
+    if (!el) return;
+    dragState.current = { down: true, moved: false, startX: e.clientX, startScroll: el.scrollLeft };
+  };
+  const onTabsPointerMove = (e) => {
+    const st = dragState.current;
+    const el = tabsRef.current;
+    if (!st.down || !el) return;
+    const dx = e.clientX - st.startX;
+    if (Math.abs(dx) > 4) st.moved = true;
+    el.scrollLeft = st.startScroll - dx;
+  };
+  const endTabsDrag = () => {
+    dragState.current.down = false;
+  };
+  const onTabClick = (slug) => (e) => {
+    if (dragState.current.moved) {
+      e.preventDefault();
+      dragState.current.moved = false;
+      return;
+    }
+    setActiveSlug(slug);
+  };
 
   const bySlug = Object.fromEntries(categories.map((c) => [c.slug, c]));
   const chapters = CHAPTER_SLUGS.map((slug) => bySlug[slug]).filter(Boolean);
@@ -27,18 +54,27 @@ export default function MenusPage() {
 
   return (
     <div style={{ background: 'var(--off-white)' }}>
-      <div className="chapter-tabs" style={{
-        display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'nowrap',
-        padding: 'clamp(18px, 3vh, 28px) clamp(20px, 5vw, 70px) clamp(14px, 2vh, 20px)',
-        borderBottom: '1px solid rgba(24,38,67,0.15)',
-        overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none',
-      }}>
+      <div
+        className="chapter-tabs"
+        ref={tabsRef}
+        onMouseDown={onTabsPointerDown}
+        onMouseMove={onTabsPointerMove}
+        onMouseUp={endTabsDrag}
+        onMouseLeave={endTabsDrag}
+        style={{
+          display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'nowrap',
+          padding: 'clamp(18px, 3vh, 28px) clamp(20px, 5vw, 70px) clamp(14px, 2vh, 20px)',
+          borderBottom: '1px solid rgba(24,38,67,0.15)',
+          overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none',
+          cursor: 'grab', userSelect: 'none',
+        }}
+      >
         {chapters.map((c) => {
           const isActive = c.slug === active.slug;
           return (
             <button
               key={c.slug}
-              onClick={() => setActiveSlug(c.slug)}
+              onClick={onTabClick(c.slug)}
               className="serif"
               style={{
                 background: 'none', border: 'none', cursor: 'pointer', fontStyle: 'italic',
