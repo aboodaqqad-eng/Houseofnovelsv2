@@ -22,7 +22,7 @@ export default function Catering() {
         display: 'grid', gridTemplateColumns: 'minmax(260px, 32%) 1fr', gap: 'clamp(24px, 4vw, 48px)',
         padding: 'clamp(24px, 5vh, 48px) clamp(20px, 5vw, 70px)',
       }} className="catering-grid">
-        <div style={{ background: 'var(--navy-deep)', color: 'var(--off-white)', padding: 'clamp(24px, 4vw, 40px)' }}>
+        <div style={{ background: 'var(--olive)', color: 'var(--off-white)', padding: 'clamp(24px, 4vw, 40px)' }}>
           <p className="label" style={{ fontSize: '0.62rem', letterSpacing: '0.15em', opacity: 0.85, marginBottom: 10 }}>
             {catering?.eyebrow || 'WEDDINGS . CORPORATE . PRIVATE'}
           </p>
