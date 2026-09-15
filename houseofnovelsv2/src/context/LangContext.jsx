@@ -85,7 +85,7 @@ export const categoryNames = {
   bakery: { en: 'Bakery', ar: 'مخبوزات' },
   coffee: { en: 'Coffee', ar: 'قهوة' },
   healthy: { en: 'Healthy Cake and Bread', ar: 'كيك وخبز صحي' },
-  catering: { en: 'Events Catering', ar: 'تقديم الفعاليات' },
+  catering: { en: 'Events & Catering', ar: 'تقديم الفعاليات' },
 };
 
 const LangContext = createContext(null);
