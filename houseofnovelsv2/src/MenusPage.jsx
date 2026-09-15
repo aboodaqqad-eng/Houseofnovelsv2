@@ -59,8 +59,8 @@ export default function MenusPage() {
       )}
 
       <div style={{
-        display: 'grid', gridTemplateColumns: 'minmax(260px, 32%) 1fr', gap: 0,
-        minHeight: 520, alignItems: 'stretch',
+        display: 'grid', gridTemplateColumns: 'minmax(220px, 26%) 1fr', gap: 0,
+        alignItems: 'start', padding: '0 0 clamp(40px, 6vh, 64px)',
       }} className="chapter-grid">
         <div style={{
           background: active.background, color: active.ink,
