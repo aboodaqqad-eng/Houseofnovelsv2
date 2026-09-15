@@ -20,7 +20,7 @@ export default function Home() {
       <section style={{
         background: 'var(--olive)', color: 'var(--off-white)',
         padding: 'clamp(40px, 8vh, 80px) clamp(20px, 6vw, 90px)',
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap',
+        display: 'flex', justifyContent: 'flex-start', alignItems: 'center', gap: 'clamp(32px, 6vw, 90px)', flexWrap: 'wrap',
       }}>
         <div style={{ maxWidth: 640 }}>
           <p className="label" style={{ fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.85, marginBottom: 16 }}>
@@ -34,7 +34,7 @@ export default function Home() {
           src={heroPhoto}
           alt="House of Novéls pastries"
           style={{
-            width: 'min(360px, 100%)', aspectRatio: '4 / 5', objectFit: 'cover',
+            width: 'min(440px, 100%)', aspectRatio: '4 / 5', objectFit: 'cover',
             borderRadius: 2, flex: '0 0 auto',
           }}
         />
