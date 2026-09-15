@@ -24,7 +24,7 @@ function Nav() {
     }}>
       <NavLink to="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', justifySelf: 'start' }}>
         <img src={symbol} alt="House of Novéls" style={{ height: 44 }} />
-        <span className="serif" style={{ fontStyle: 'italic', fontSize: '1.15rem', color: 'var(--navy-deep)', whiteSpace: 'nowrap' }}>
+        <span className="serif" style={{ fontStyle: 'italic', fontSize: '1.15rem', color: 'var(--olive)', whiteSpace: 'nowrap' }}>
           House of Novéls
         </span>
       </NavLink>
