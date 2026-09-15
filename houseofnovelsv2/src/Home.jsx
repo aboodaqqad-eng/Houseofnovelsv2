@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useMenu } from './context/MenuContext.jsx';
 import { menuPhotos } from './data/menuPhotos.js';
 import heroPhoto from './assets/photos/storefront.jpg';
@@ -54,7 +55,10 @@ export default function Home() {
         <h2 className="serif" style={{ textAlign: 'center', fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)', color: 'var(--navy-deep)', marginBottom: 'clamp(20px, 3.5vh, 32px)' }}>
           Best Sellers
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 'clamp(16px, 2.5vw, 28px)' }}>
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 200px))',
+          gap: 'clamp(16px, 2.5vw, 28px)', justifyContent: 'center',
+        }}>
           {bestSellers.map((item) => (
             <div key={item.id}>
               {menuPhotos[item.name] ? (
@@ -74,6 +78,19 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: 'clamp(28px, 4.5vh, 44px)' }}>
+          <Link
+            to="/menu"
+            className="label"
+            style={{
+              display: 'inline-block', background: 'var(--peach)', color: 'var(--navy-deep)',
+              padding: '15px 32px', fontSize: '0.75rem', letterSpacing: '0.1em', textDecoration: 'none',
+            }}
+          >
+            Explore the Full Menu
+          </Link>
         </div>
       </section>
     </div>
