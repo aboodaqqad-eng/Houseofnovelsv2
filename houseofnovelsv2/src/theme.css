@@ -179,6 +179,30 @@ a { color: inherit; }
   color: var(--off-white);
 }
 
+@media (max-width: 700px) {
+  .site-header {
+    grid-template-columns: 1fr !important;
+    row-gap: 12px;
+    padding: 16px 20px !important;
+  }
+  .site-logo {
+    justify-self: center !important;
+  }
+  .site-nav {
+    justify-self: stretch !important;
+    width: 100%;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
+    gap: clamp(10px, 4vw, 22px) !important;
+  }
+  .site-nav a {
+    font-size: 0.68rem !important;
+  }
+  .site-spacer {
+    display: none;
+  }
+}
+
 .placeholder-badge {
   display: inline-block;
   font-family: var(--font-sans);

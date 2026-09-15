@@ -17,25 +17,25 @@ function Nav() {
   });
 
   return (
-    <header style={{
+    <header className="site-header" style={{
       background: 'var(--off-white)', padding: '18px 32px',
       display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: 20,
       borderBottom: '1px solid rgba(24,38,67,0.25)',
     }}>
-      <NavLink to="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', justifySelf: 'start' }}>
+      <NavLink to="/" className="site-logo" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', justifySelf: 'start' }}>
         <img src={symbol} alt="House of Novéls" style={{ height: 44 }} />
         <span className="serif" style={{ fontStyle: 'italic', fontSize: '1.15rem', color: 'var(--olive)', whiteSpace: 'nowrap' }}>
           House of Novéls
         </span>
       </NavLink>
-      <nav style={{ display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', justifySelf: 'center' }}>
+      <nav className="site-nav" style={{ display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', justifySelf: 'center' }}>
         <NavLink to="/" end className="label" style={navLinkStyle}>Home</NavLink>
         <NavLink to="/menu" end className="label" style={navLinkStyle}>Menu</NavLink>
         <NavLink to="/menu/catering" className="label" style={navLinkStyle}>
           {categoryNames.catering[lang]}
         </NavLink>
       </nav>
-      <div />
+      <div className="site-spacer" />
     </header>
   );
 }
