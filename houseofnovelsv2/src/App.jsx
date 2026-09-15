@@ -19,19 +19,20 @@ function Nav() {
   return (
     <header style={{
       background: 'var(--off-white)', padding: '18px 32px',
-      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20, flexWrap: 'wrap',
+      display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: 20,
       borderBottom: '1px solid rgba(24,38,67,0.25)',
     }}>
-      <NavLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+      <NavLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', justifySelf: 'start' }}>
         <img src={symbol} alt="House of Novéls" style={{ height: 44 }} />
       </NavLink>
-      <nav style={{ display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap', alignItems: 'center' }}>
+      <nav style={{ display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', justifySelf: 'center' }}>
         <NavLink to="/" end className="label" style={navLinkStyle}>Home</NavLink>
         <NavLink to="/menu" className="label" style={navLinkStyle}>Menu</NavLink>
         <NavLink to="/menu/catering" className="label" style={navLinkStyle}>
           {categoryNames.catering[lang]}
         </NavLink>
       </nav>
+      <div />
     </header>
   );
 }
