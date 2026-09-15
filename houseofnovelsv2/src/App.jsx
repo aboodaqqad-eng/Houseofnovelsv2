@@ -27,7 +27,7 @@ function Nav() {
       </NavLink>
       <nav style={{ display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', justifySelf: 'center' }}>
         <NavLink to="/" end className="label" style={navLinkStyle}>Home</NavLink>
-        <NavLink to="/menu" className="label" style={navLinkStyle}>Menu</NavLink>
+        <NavLink to="/menu" end className="label" style={navLinkStyle}>Menu</NavLink>
         <NavLink to="/menu/catering" className="label" style={navLinkStyle}>
           {categoryNames.catering[lang]}
         </NavLink>
