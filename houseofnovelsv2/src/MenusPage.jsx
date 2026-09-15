@@ -27,10 +27,11 @@ export default function MenusPage() {
 
   return (
     <div style={{ background: 'var(--off-white)' }}>
-      <div style={{
-        display: 'flex', justifyContent: 'center', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'wrap',
+      <div className="chapter-tabs" style={{
+        display: 'flex', justifyContent: 'center', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'nowrap',
         padding: 'clamp(18px, 3vh, 28px) clamp(20px, 5vw, 70px) clamp(14px, 2vh, 20px)',
         borderBottom: '1px solid rgba(24,38,67,0.15)',
+        overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none',
       }}>
         {chapters.map((c) => {
           const isActive = c.slug === active.slug;
@@ -44,6 +45,7 @@ export default function MenusPage() {
                 fontSize: 'clamp(1rem, 1.8vw, 1.3rem)', fontWeight: 400, padding: '4px 2px',
                 color: isActive ? 'var(--navy-deep)' : 'rgba(24,38,67,0.5)',
                 borderBottom: `2px solid ${isActive ? 'var(--orange)' : 'transparent'}`,
+                whiteSpace: 'nowrap', flex: '0 0 auto',
               }}
             >
               {categoryNames[c.slug]?.[lang] || c.name}
@@ -146,6 +148,7 @@ export default function MenusPage() {
         @media (max-width: 760px) {
           .chapter-grid { grid-template-columns: 1fr !important; }
         }
+        .chapter-tabs::-webkit-scrollbar { display: none; }
       `}</style>
     </div>
   );
