@@ -185,9 +185,7 @@ export default function MenusPage() {
           .chapter-grid { grid-template-columns: 1fr !important; }
         }
         .chapter-tabs::-webkit-scrollbar { display: none; }
-        @media (min-width: 761px) {
-          .chapter-tabs { justify-content: center; }
-        }
+        .chapter-tabs { justify-content: safe center; }
       `}</style>
     </div>
   );
