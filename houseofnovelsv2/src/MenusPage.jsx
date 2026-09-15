@@ -28,7 +28,7 @@ export default function MenusPage() {
   return (
     <div style={{ background: 'var(--off-white)' }}>
       <div className="chapter-tabs" style={{
-        display: 'flex', justifyContent: 'center', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'nowrap',
+        display: 'flex', gap: 'clamp(20px, 4vw, 48px)', flexWrap: 'nowrap',
         padding: 'clamp(18px, 3vh, 28px) clamp(20px, 5vw, 70px) clamp(14px, 2vh, 20px)',
         borderBottom: '1px solid rgba(24,38,67,0.15)',
         overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none',
@@ -149,6 +149,9 @@ export default function MenusPage() {
           .chapter-grid { grid-template-columns: 1fr !important; }
         }
         .chapter-tabs::-webkit-scrollbar { display: none; }
+        @media (min-width: 761px) {
+          .chapter-tabs { justify-content: center; }
+        }
       `}</style>
     </div>
   );
